@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d08ymwie64x78"]
+
+[ext_resource type="PackedScene" uid="uid://drsuhng36km7e" path="res://scenes/variable_helper.tscn" id="1_lo3s5"]
+[ext_resource type="PackedScene" uid="uid://cnphuecmmonpo" path="res://scenes/gdscript_to_cpp.tscn" id="2_stox0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Variable Helper" parent="TabContainer" instance=ExtResource("1_lo3s5")]
+layout_mode = 2
+
+[node name="GDScript2C++" parent="TabContainer" instance=ExtResource("2_stox0")]
+visible = false
+layout_mode = 2

@@ -1,4 +1,4 @@
-extends Control
+extends HBoxContainer
 
 var my_values:PackedStringArray #value
 

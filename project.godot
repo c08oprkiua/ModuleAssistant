@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Module Coding Assistant"
-run/main_scene="res://gui.tscn"
+config/tags=PackedStringArray("gui_tools")
+run/main_scene="res://scenes/gui.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
