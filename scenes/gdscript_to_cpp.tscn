@@ -16,6 +16,7 @@ text = "Pick GDScript file"
 
 [node name="Output" type="Button" parent="."]
 layout_mode = 2
+text = "Open Output Folder"
 
 [connection signal="pressed" from="Input" to="." method="_on_input_pressed"]
 [connection signal="pressed" from="Output" to="." method="_on_output_pressed"]

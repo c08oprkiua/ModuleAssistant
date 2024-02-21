@@ -1,5 +1,3 @@
-res://scenes/gui.tscn
-res://scripts/variable_helper.gd
-res://scenes/variable_helper.tscn
 res://scenes/gdscript_to_cpp.tscn
 res://scripts/gdscript_to_cpp.gd
+res://scenes/gui.tscn
