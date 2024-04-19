@@ -28,6 +28,7 @@ func _on_def_var_text_changed(new_text:String):
 	default_var = new_text
 
 func _on_generate_pressed():
+	variable_array.clear()
 	if default_var == "":
 		default_var = "Variant"
 	if className == "":
@@ -49,7 +50,8 @@ func _on_generate_pressed():
 		write(fabs)
 		#function class definition
 		fabs.text_arr.clear()
-		fabs.file_name = "{class}.cpp".format({"class": className})
+		fabs.file_name = "{class}.h".format({"class": className})
+		fabs.text_arr.append("    {defvar} {variable};\n")
 		fabs.text_arr.append("    {defvar} get_{variable}();\n")
 		fabs.text_arr.append("    void set_{variable}({defvar} new_{variable}); \n\n")
 		write(fabs)
