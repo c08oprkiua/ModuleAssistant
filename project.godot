@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Module Coding Assistant"
+config/description="A little tool that aids in writing C++ engine modules."
 config/tags=PackedStringArray("gui_tools")
 run/main_scene="res://scenes/gui.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
