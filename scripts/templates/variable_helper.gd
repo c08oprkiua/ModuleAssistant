@@ -8,6 +8,8 @@ var base_directory:String = OS.get_user_data_dir()
 var className:String
 var default_var:String
 
+
+
 class GenPreFab:
 	extends Resource
 	##The file being saved to
@@ -38,8 +40,8 @@ func _on_generate_pressed():
 	for fabs in variable_array:
 		#Bindings
 		fabs.file_name = "{class}_bindings.cpp".format({"class": className})
-		fabs.text_arr.append("    ClassDB::bind_method(D_METHOD(\"get_{variable}\"), {class}::get_{variable});\n")
-		fabs.text_arr.append("    ClassDB::bind_method(D_METHOD(\"set_{variable}\", \"{variable}\"), {class}::set_{variable});\n\n")
+		fabs.text_arr.append("    ClassDB::bind_method(D_METHOD(\"get_{variable}\"), &{class}::get_{variable});\n")
+		fabs.text_arr.append("    ClassDB::bind_method(D_METHOD(\"set_{variable}\", \"{variable}\"), &{class}::set_{variable});\n\n")
 		fabs.text_arr.append("    ADD_PROPERTY(PropertyInfo(Variant::{defvar}, \"{variable}\"), \"set_{variable}\", \"get_{variable}\");\n\n")
 		write(fabs)
 		#set_gets

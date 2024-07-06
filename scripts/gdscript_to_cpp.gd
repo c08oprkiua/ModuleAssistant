@@ -15,12 +15,12 @@ func parse_gdscript_func(stir:String):
 func _on_output_pressed():
 	pass # Replace with function body.
 
-func big_write(data:CppTemplates):
+func big_write(data:CppFunctionTemplate):
 	pass
 
-func write_class(data:CppTemplates):
+func write_class(data:CppFunctionTemplate):
 	pass
 
-func write_variable(data:VarType):
+func write_variable(data:CppVarTemplate):
 	pass
 

@@ -1,5 +1,5 @@
 extends Resource
-class_name VarType
+class_name CppVarTemplate
 
 static var num_increment:int = 0
 
@@ -22,8 +22,6 @@ func _init(name:String = "",value:Variant = null):
 	if value != null:
 		var_type = type_string(typeof(value))
 		data = value
-		
-
 
 func stringify_setgets(class_name_is:String):
 	pass
