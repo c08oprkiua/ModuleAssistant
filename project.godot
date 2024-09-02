@@ -14,7 +14,7 @@ config/name="Module Coding Assistant"
 config/description="A little tool that aids in writing C++ engine modules."
 config/tags=PackedStringArray("gui_tools")
 run/main_scene="res://scenes/gui.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [rendering]

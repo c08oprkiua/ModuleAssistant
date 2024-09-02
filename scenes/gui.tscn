@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d08ymwie64x78"]
+[gd_scene load_steps=5 format=3 uid="uid://d08ymwie64x78"]
 
-[ext_resource type="PackedScene" uid="uid://drsuhng36km7e" path="res://scenes/variable_helper.tscn" id="1_lo3s5"]
-[ext_resource type="PackedScene" uid="uid://cnphuecmmonpo" path="res://scenes/gdscript_to_cpp.tscn" id="2_stox0"]
+[ext_resource type="LabelSettings" uid="uid://bfq2fubl1lynw" path="res://header_label.tres" id="1_71wp5"]
+[ext_resource type="Script" path="res://scenes/gui.gd" id="1_qmrq7"]
+[ext_resource type="Script" path="res://scripts/variable_helper.gd" id="2_gl05c"]
+[ext_resource type="Script" path="res://scripts/gdscript_to_cpp.gd" id="3_7u2ky"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,8 +12,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qmrq7")
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,9 +22,141 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Variable Helper" parent="TabContainer" instance=ExtResource("1_lo3s5")]
+[node name="Main" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="GDScript2C++" parent="TabContainer" instance=ExtResource("2_stox0")]
+[node name="GDScriptColumn" type="VBoxContainer" parent="VBoxContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/GDScriptColumn"]
+layout_mode = 2
+text = "GDScript"
+label_settings = ExtResource("1_71wp5")
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/Main/GDScriptColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 1
+
+[node name="Variable Helper" type="VBoxContainer" parent="VBoxContainer/Main/GDScriptColumn/TabContainer"]
 visible = false
 layout_mode = 2
+script = ExtResource("2_gl05c")
+metadata/_tab_index = 0
+
+[node name="class" type="LineEdit" parent="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper"]
+layout_mode = 2
+placeholder_text = "Your class' name here"
+
+[node name="def_var" type="LineEdit" parent="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper"]
+layout_mode = 2
+placeholder_text = "Your default variable type here"
+
+[node name="values" type="TextEdit" parent="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "List your values by seperating them with commas. Variables may be typed individually by using GDScript's static type syntax. Otherwise, they will use whichever type is default."
+wrap_mode = 1
+
+[node name="GDScript To C++" type="VBoxContainer" parent="VBoxContainer/Main/GDScriptColumn/TabContainer"]
+layout_mode = 2
+script = ExtResource("3_7u2ky")
+metadata/_tab_index = 1
+
+[node name="GDScriptInput" type="Button" parent="VBoxContainer/Main/GDScriptColumn/TabContainer/GDScript To C++"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Pick GDScript file"
+
+[node name="ScriptCode" type="CodeEdit" parent="VBoxContainer/Main/GDScriptColumn/TabContainer/GDScript To C++"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Your GDScript script will appear here when loaded from a file. Or, you can copy your code and paste it into here."
+wrap_mode = 1
+
+[node name="C++Column" type="VBoxContainer" parent="VBoxContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Main/C++Column"]
+layout_mode = 2
+text = "C++"
+label_settings = ExtResource("1_71wp5")
+horizontal_alignment = 1
+
+[node name="C++Tabs" type="TabContainer" parent="VBoxContainer/Main/C++Column"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+deselect_enabled = true
+
+[node name="Header" type="CodeEdit" parent="VBoxContainer/Main/C++Column/C++Tabs"]
+layout_mode = 2
+placeholder_text = "Header declarations for your class will show up here. You can manually edit code as needed before pressing \"output\". "
+wrap_mode = 1
+metadata/_tab_index = 0
+
+[node name="Code" type="CodeEdit" parent="VBoxContainer/Main/C++Column/C++Tabs"]
+visible = false
+layout_mode = 2
+placeholder_text = "Source code for all your class' functions will show up here. You can manually edit code as needed before pressing \"output\". "
+wrap_mode = 1
+metadata/_tab_index = 1
+
+[node name="ClassDB Binding" type="CodeEdit" parent="VBoxContainer/Main/C++Column/C++Tabs"]
+visible = false
+layout_mode = 2
+placeholder_text = "The function for binding variables to the ClassDB API will show up here. You can manually edit code as needed before pressing \"output\". "
+wrap_mode = 1
+metadata/_tab_index = 2
+
+[node name="Set-Gets" type="CodeEdit" parent="VBoxContainer/Main/C++Column/C++Tabs"]
+visible = false
+layout_mode = 2
+placeholder_text = "Setter and getter functions for API-exposed variables will show up here. You can manually edit code as needed before pressing \"output\". "
+wrap_mode = 1
+metadata/_tab_index = 3
+
+[node name="CommonButtons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="OpenSettings" type="Button" parent="VBoxContainer/CommonButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Open Settings"
+
+[node name="LoadInput" type="Button" parent="VBoxContainer/CommonButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load File"
+
+[node name="ProcessInput" type="Button" parent="VBoxContainer/CommonButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Process Input"
+
+[node name="SaveOutput" type="Button" parent="VBoxContainer/CommonButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save C++ Files"
+
+[node name="OpenOutput" type="Button" parent="VBoxContainer/CommonButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Open Output Folder"
+
+[connection signal="visibility_changed" from="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper" to="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper" method="_on_visibility_changed"]
+[connection signal="text_changed" from="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper/class" to="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper" method="_on_class_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper/def_var" to="VBoxContainer/Main/GDScriptColumn/TabContainer/Variable Helper" method="_on_def_var_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Main/GDScriptColumn/TabContainer/GDScript To C++/GDScriptInput" to="VBoxContainer/Main/GDScriptColumn/TabContainer/GDScript To C++" method="_on_input_pressed"]
+[connection signal="pressed" from="VBoxContainer/CommonButtons/OpenSettings" to="." method="_on_open_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/CommonButtons/LoadInput" to="." method="_on_load_input_pressed"]
+[connection signal="pressed" from="VBoxContainer/CommonButtons/ProcessInput" to="." method="_on_process_input_pressed"]
+[connection signal="pressed" from="VBoxContainer/CommonButtons/SaveOutput" to="." method="_on_save_output_pressed"]
+[connection signal="pressed" from="VBoxContainer/CommonButtons/OpenOutput" to="." method="_on_open_output_pressed"]
