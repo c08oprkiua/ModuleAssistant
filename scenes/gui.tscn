@@ -40,10 +40,10 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
+deselect_enabled = true
 
 [node name="Variable Helper" type="VBoxContainer" parent="VBoxContainer/Main/GDScriptColumn/TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("2_gl05c")
 metadata/_tab_index = 0
@@ -64,6 +64,7 @@ placeholder_text = "List your values by seperating them with commas. Variables m
 wrap_mode = 1
 
 [node name="GDScript To C++" type="VBoxContainer" parent="VBoxContainer/Main/GDScriptColumn/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("3_7u2ky")
 metadata/_tab_index = 1
