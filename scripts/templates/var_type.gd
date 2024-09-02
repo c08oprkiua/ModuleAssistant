@@ -27,4 +27,5 @@ var hint_string:String
 var usage_bitfield:int
 
 func _init(info:Dictionary = {}) -> void:
-	var_type = info.get("type", 0)
+	num_increment += 1
+	var_type = type_string(info.get("type", 0))
