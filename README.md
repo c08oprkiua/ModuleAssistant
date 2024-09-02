@@ -2,7 +2,7 @@
 
 ### USE THIS AT YOUR (CODE'S) OWN RISK!!!
 
-Helper tool for making engine modules in Godot 4 (and 3, technically). 
+Helper tool for making engine modules in Godot 4 and 3. 
 
 
 
@@ -18,7 +18,7 @@ This is a little thingamabob I initially made in an evening to automate all the 
 
 ## Usage
 
-To use the variable code generator, list your variables, seperating them by commas.
+To use the variable code generator, list your variables, separating them by commas.
 
 * Any spaces will be deleted (ex: "My var 1, my  var  2" will translate to `Myvar1` and `myvar2`)
 
@@ -30,16 +30,12 @@ To use the variable code generator, list your variables, seperating them by comm
 
 
 
-When the files are generated, they will be stored in the data's user directory. The UI has a button that will automatically open this folder in your computer's file explorer.
-
+When the C++ code is generated, it will show up in the preview windows on the right side. Here, you can make any necessary edits that you may see fit to do. If you want to export that text to a file, click the save button. Then, press the button for opening the output folder, and the folder where the saved files are written to will be opened in your file explorer, defaulting to the user directory of Godot.
 
 
 ## Issues
 
 ##### Note: I may or *may not* address these
 
-* The `ADD_PROPERTY` does not product valid code; the type will have to be manually corrected.
-
-* Godot 3 support was not exactly intended: It moreso works because they happened to not change the `ClassDB` API between 3 and 4 much. That being said, the above `ADD_PROPERTY` issue is also going to be present for Godot 3.
-
+* No dedicated function binding generator.
 * The GDScript to C++ converter is currently not done. Even when it eventually is, what it will output will probably have to be manually tweaked/added to before it is proper, usable code.
