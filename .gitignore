@@ -12,3 +12,4 @@ data_*/
 .godot/
 /.godot
 /build
+*.uid

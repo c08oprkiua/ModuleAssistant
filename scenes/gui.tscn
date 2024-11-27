@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://d08ymwie64x78"]
 
 [ext_resource type="LabelSettings" uid="uid://bfq2fubl1lynw" path="res://header_label.tres" id="1_71wp5"]
-[ext_resource type="Script" path="res://scenes/gui.gd" id="1_qmrq7"]
-[ext_resource type="Script" path="res://scripts/variable_helper.gd" id="2_gl05c"]
-[ext_resource type="Script" path="res://scripts/gdscript_to_cpp.gd" id="3_7u2ky"]
+[ext_resource type="Script" uid="uid://cigfvsfx7og56" path="res://scenes/gui.gd" id="1_qmrq7"]
+[ext_resource type="Script" uid="uid://bhmluqifuggyf" path="res://scripts/variable_helper.gd" id="2_gl05c"]
+[ext_resource type="Script" uid="uid://di7lhao6q6voa" path="res://scripts/gdscript_to_cpp.gd" id="3_7u2ky"]
 
-[node name="Control" type="Control"]
+[node name="HelperRoot" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

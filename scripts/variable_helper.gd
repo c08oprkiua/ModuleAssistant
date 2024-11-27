@@ -20,6 +20,7 @@ var variable_array:Array[VariableInfo] = []
 
 func _ready() -> void:
 	root = get_tree().current_scene
+	print("dfjkshksf")
 
 func _on_class_text_changed(new_text:String):
 	root.current_class_name = new_text.validate_filename()
@@ -28,10 +29,11 @@ func _on_def_var_text_changed(new_text:String):
 	default_var = new_text
 
 func _on_visibility_changed() -> void:
-	if visible:
-		root.process_context = generate
-	else:
-		pass
+	#if visible:
+		#root.process_context = generate
+	#else:
+		#pass
+	pass
 
 func generate():
 	parse_values()
